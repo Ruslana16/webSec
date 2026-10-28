@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #222;
+}
+
+nav {
+    background: #15171c;
+    color: white;
+    padding: 16px 30px;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.auth-container {
+    max-width: 420px;
+    margin: 70px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+}
+
+.auth-container h1 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button,
+.download-button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.auth-container button {
+    width: 100%;
+    margin-top: 22px;
+    background: #222;
+    color: white;
+}
+
+.card button {
+    margin-top: 15px;
+    background: #222;
+    color: white;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 9px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.download-button {
+    background: #222;
+    color: white;
+}
+
+.delete-button {
+    background: #b3261e !important;
+    color: white;
+    margin-top: 0 !important;
+}
+
+.logout-button {
+    background: transparent;
+    color: white;
+    border: 1px solid #777;
+    margin: 0;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.message {
+    background: #e7edf7;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+small {
+    display: block;
+    margin-top: 12px;
+    color: #666;
+}
+
