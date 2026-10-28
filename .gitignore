@@ -1,0 +1,17 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+.env
+
+instance/*.db
+storage/*
+
+certs/*.pem
+
+.DS_Store
+.idea/
+.vscode/
+
+
