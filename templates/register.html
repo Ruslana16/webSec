@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+
+{% block content %}
+
+<div class="auth-container">
+
+    <h1>Create account</h1>
+
+    <p>
+        Create an account to securely encrypt
+        and manage your files.
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="hidden"
+            name="csrf_token"
+            value="{{ csrf_token() }}"
+        >
+
+        <label>Username</label>
+
+        <input
+            type="text"
+            name="username"
+            required
+            minlength="3"
+            autocomplete="username"
+        >
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            name="password"
+            required
+            minlength="8"
+            autocomplete="new-password"
+        >
+
+        <label>Confirm password</label>
+
+        <input
+            type="password"
+            name="confirm_password"
+            required
+            minlength="8"
+            autocomplete="new-password"
+        >
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+    <p class="switch-page">
+
+        Already have an account?
+
+        <a href="{{ url_for('login') }}">
+            Login
+        </a>
+
+    </p>
+
+</div>
+
+{% endblock %}
+

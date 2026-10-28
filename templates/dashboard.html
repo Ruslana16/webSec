@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <div class="header-section">
+
+        <h1>Encrypted Files</h1>
+
+        <p>
+            Files are encrypted on the server before being stored.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Upload a file</h2>
+
+        <form
+            action="{{ url_for('upload') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+            >
+
+            <input
+                type="file"
+                name="file"
+                required
+            >
+
+            <button type="submit">
+                Encrypt & Upload
+            </button>
+
+        </form>
+
+        <small>
+            Maximum file size: 10 MB
+        </small>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Your files</h2>
+
+        {% if files %}
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th>Uploaded</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for file in files %}
+
+                <tr>
+
+                    <td>
+                        {{ file["original_name"] }}
+                    </td>
+
+                    <td>
+                        {{ file["uploaded_at"] }}
+                    </td>
+
+                    <td class="actions">
+
+                        <a
+                            class="download-button"
+                            href="{{ url_for('download', file_id=file['id']) }}"
+                        >
+                            Download
+                        </a>
+
+                        <form
+                            action="{{ url_for('delete_file', file_id=file['id']) }}"
+                            method="POST"
+                            class="inline-form"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="csrf_token"
+                                value="{{ csrf_token() }}"
+                            >
+
+                            <button
+                                type="submit"
+                                class="delete-button"
+                            >
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p>
+            You haven't uploaded any files yet.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
